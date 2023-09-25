@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { Icon } from '@iconify/react'
 import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
 
-const Login = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   const togleShowPassword = () => {
@@ -13,8 +13,8 @@ const Login = () => {
     <div className="h-screen flex flex-col justify-center items-center ">
       <div className="bg-gray-900 max-w-screen-sm md:w-full mx-3 rounded-xl">
         <div className="text-center">
-          <h1 className="text-white font-bold pt-5 text-3xl mb-3">Login</h1>
-          <p className="text-white font-medium">Silahkan login terlebih dahulu ya</p>
+          <h1 className="text-white font-bold pt-5 text-3xl mb-3">Register</h1>
+          <p className="text-white font-medium">Silahkan daftar terlebih dahulu ya</p>
         </div>
         <div className="md:mx-5 px-4 py-12 ">
           <form className="w-full">
@@ -62,14 +62,14 @@ const Login = () => {
               type="submit"
               className="p-3 bg-blue-600 text-white w-full rounded-md font-smibold"
             >
-              Login
+              Register
             </button>
           </form>
 
           <div className="text-center mt-5 text-white">
-            <Link to="/register">
+            <Link to="/login">
               <h1>
-                Belum punya akun? <span className="text-blue-300 cursor-pointer"> Register</span>
+                Sudah punya akun? <span className="text-blue-300 cursor-pointer"> Login</span>
               </h1>
             </Link>
           </div>
@@ -79,4 +79,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register
