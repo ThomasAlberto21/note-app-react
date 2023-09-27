@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { toast } from 'react-toastify'
 
 const Register = () => {
+  const navigate = useNavigate()
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -25,6 +26,8 @@ const Register = () => {
           progress: undefined,
           theme: 'light'
         })
+
+        navigate('/succes-register')
       }
     } catch (error) {
       console.log(error)
@@ -68,10 +71,10 @@ const Register = () => {
             </div>
             <div className="mb-10 relative">
               <label htmlFor="password" className="block mb-2 text-sm font-medium text-white">
-                Password Anda
+                Password Anda (min 10 karakter)
               </label>
               <input
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 className="p-3 w-full rounded-md"
                 required
                 placeholder="Masukkan password anda disini..."
