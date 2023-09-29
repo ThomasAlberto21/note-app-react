@@ -14,11 +14,14 @@ const NavbarConditional = () => {
 }
 
 const App = () => {
+  const isLogin = false
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NavbarConditional />} />
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<NavbarConditional />} />
+        **{isLogin ? <Route path="/" element={<Home />} /> : <Route path="/" element={<Login />} />}
+        **
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/succes-register" element={<RegisterSuccess />} />

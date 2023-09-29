@@ -13,9 +13,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const item = { name, password }
-      const response = await axios.post('http://localhost:3000/api/user/login', item)
+      const data = { name, password }
+      const response = await axios.post('http://localhost:3000/api/user/login', data)
       if (response.status === 200) {
+        const { data } = response
+        const token = data.data.token
+
+        localStorage.setItem('token', token)
         toast.success('Berhasil Login', {
           position: 'top-right',
           autoClose: 3000,

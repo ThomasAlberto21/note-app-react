@@ -13,8 +13,8 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const item = { name, password }
-      const response = await axios.post('http://localhost:3000/api/user/register', item)
+      const data = { name, password }
+      const response = await axios.post('http://localhost:3000/api/user/register', data)
       if (response.status === 200) {
         toast.success('Berhasil melakukan register', {
           position: 'top-right',
