@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Icon } from '@iconify/react'
+import { Context } from '../Context.jsx'
 
 const Navbar = () => {
+  const { name } = useContext(Context)
   const navigate = useNavigate()
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const handleDropdown = () => {
@@ -60,7 +62,7 @@ const Navbar = () => {
           className="flex justify-center items-center gap-3 cursor-pointer"
           onClick={handleDropdown}
         >
-          <span>Thomas Alberto</span>
+          <span>{name}</span>
           <Icon icon="mingcute:down-fill" />
           {dropdownOpen && (
             <div className="bg-white px-10 py-3 absolute mt-24 border rounded-md hover:bg-gray-400">

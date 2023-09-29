@@ -1,11 +1,13 @@
 import axios from 'axios'
 import { Icon } from '@iconify/react'
 import { toast } from 'react-toastify'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { Context } from '../../Context.jsx'
 
 const Login = () => {
   const navigate = useNavigate()
+  const { setUser } = useContext(Context)
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -30,7 +32,7 @@ const Login = () => {
           progress: undefined,
           theme: 'light'
         })
-
+        setUser(name)
         navigate('/home')
       }
     } catch (error) {

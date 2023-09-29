@@ -6,19 +6,23 @@ import RegisterSuccess from './pages/Register/RegisterSuccess.jsx'
 import NotFound from './pages/404.jsx'
 import { ToastContainer } from 'react-toastify'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Provider } from './Context.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/success-register" element={<RegisterSuccess />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Provider>
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/success-register" element={<RegisterSuccess />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Provider>
+
       <ToastContainer />
     </BrowserRouter>
   )
