@@ -27,7 +27,7 @@ const Register = () => {
           theme: 'light'
         })
 
-        navigate('/succes-register')
+        navigate('/success-register')
       }
     } catch (error) {
       console.log(error)

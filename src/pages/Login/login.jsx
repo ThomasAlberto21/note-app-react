@@ -31,7 +31,7 @@ const Login = () => {
           theme: 'light'
         })
 
-        navigate('/')
+        navigate('/home')
       }
     } catch (error) {
       console.log(error)
