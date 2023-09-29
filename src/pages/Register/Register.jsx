@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import { Icon } from '@iconify/react'
 import { toast } from 'react-toastify'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const navigate = useNavigate()
