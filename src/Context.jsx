@@ -4,6 +4,7 @@ const Context = createContext(null)
 // eslint-disable-next-line react/prop-types
 const Provider = ({ children }) => {
   const [name, setName] = useState('')
+
   const setUser = (name) => {
     setName(name)
   }

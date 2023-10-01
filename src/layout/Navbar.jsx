@@ -50,6 +50,12 @@ const Navbar = () => {
     }
   }
 
+  const getName = () => {
+    return localStorage.getItem('name', name)
+  }
+
+  const nameUser = useState(getName())
+
   return (
     <nav className="bg-white border-gray-200 ">
       <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
@@ -62,7 +68,7 @@ const Navbar = () => {
           className="flex justify-center items-center gap-3 cursor-pointer"
           onClick={handleDropdown}
         >
-          <span>{name}</span>
+          <span>{nameUser}</span>
           <Icon icon="mingcute:down-fill" />
           {dropdownOpen && (
             <div className="bg-white px-10 py-3 absolute mt-24 border rounded-md hover:bg-gray-400">

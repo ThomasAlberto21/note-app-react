@@ -22,6 +22,7 @@ const Login = () => {
         const token = data.data.token
 
         localStorage.setItem('token', token)
+        localStorage.setItem('name', name)
         toast.success('Berhasil Login', {
           position: 'top-right',
           autoClose: 3000,
