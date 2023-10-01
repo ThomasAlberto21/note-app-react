@@ -4,7 +4,6 @@ import Welcome from './pages/Welcome.jsx'
 import Register from './pages/Register/Register.jsx'
 import RegisterSuccess from './pages/Register/RegisterSuccess.jsx'
 import NotFound from './pages/404.jsx'
-import { ToastContainer } from 'react-toastify'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from './Context.jsx'
 import 'react-toastify/dist/ReactToastify.css'
@@ -22,8 +21,6 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>
-
-      <ToastContainer />
     </BrowserRouter>
   )
 }
