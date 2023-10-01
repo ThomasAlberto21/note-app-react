@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { Icon } from '@iconify/react'
-import { toast } from 'react-toastify'
 import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Context } from '../../Context.jsx'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -23,30 +23,22 @@ const Login = () => {
 
         localStorage.setItem('token', token)
         localStorage.setItem('name', name)
-        toast.success('Berhasil Login', {
-          position: 'top-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light'
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil Logout',
+          showConfirmButton: false,
+          timer: 1500
         })
         setUser(name)
         navigate('/home')
       }
     } catch (error) {
       console.log(error)
-      toast.error('Username atau password salah', {
-        position: 'top-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Logout',
+        showConfirmButton: false,
+        timer: 1500
       })
     }
   }

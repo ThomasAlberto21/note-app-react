@@ -1,6 +1,6 @@
+import Swal from 'sweetalert2'
 import axios from 'axios'
 import { Icon } from '@iconify/react'
-import { toast } from 'react-toastify'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -16,30 +16,22 @@ const Register = () => {
       const data = { name, password }
       const response = await axios.post('http://localhost:3000/api/user/register', data)
       if (response.status === 200) {
-        toast.success('Berhasil melakukan register', {
-          position: 'top-right',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light'
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil Register',
+          showConfirmButton: false,
+          timer: 1500
         })
 
         navigate('/success-register')
       }
     } catch (error) {
       console.log(error)
-      toast.error('Gagal melakukan register', {
-        position: 'top-right',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Register',
+        showConfirmButton: false,
+        timer: 1500
       })
     }
   }

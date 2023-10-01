@@ -25,6 +25,20 @@ const Home = () => {
     }
   }
 
+  const deleteNote = async (id_note) => {
+    try {
+      const token = localStorage.getItem('token')
+      await axios.delete(`http://localhost:3000/notes/${id_note}`, {
+        headers: {
+          Authorization: token
+        }
+      })
+      getNote()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="w-full">
@@ -48,7 +62,7 @@ const Home = () => {
                 </h5>
                 <p className="font-normal text-gray-700 dark:text-gray-400">{note.date}</p>
               </div>
-              <button className="py-4 px-5 bg-red-500 rounded-md">
+              <button className="py-4 px-5 bg-red-500 rounded-md" onClick={deleteNote}>
                 <Icon icon="material-symbols:delete" className="text-2xl text-white" />
               </button>
             </a>
