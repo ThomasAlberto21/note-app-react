@@ -1,7 +1,8 @@
 import Navbar from '../../layout/Navbar'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-
+import SearchBar from '../../components/searchBar'
+import { Icon } from '@iconify/react'
 const Home = () => {
   const [notes, setNotes] = useState([])
 
@@ -29,16 +30,27 @@ const Home = () => {
       <div className="w-full">
         <Navbar />
         <div className="max-w-screen-lg mx-auto mt-24 p-5">
+          <div className="flex justify-between items-center mb-10 gap-4">
+            <SearchBar />
+            <button className="py-4 px-5 bg-gray-800 font-bold rounded-md text-white hover:bg-gray-600">
+              <Icon icon="material-symbols:add" className=" text-white" />
+            </button>
+          </div>
           {notes.map((note) => (
             <a
               key={note.id_note}
               href="#"
-              className="block max-w p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 mb-3"
+              className="flex justify-between items-center max-w p-6 border  rounded-lg shadow  bg-gray-800 border-gray-700 hover:bg-gray-700 mb-3"
             >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {note.title}
-              </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">{note.date}</p>
+              <div className="block">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-800 dark:text-white">
+                  {note.title}
+                </h5>
+                <p className="font-normal text-gray-700 dark:text-gray-400">{note.date}</p>
+              </div>
+              <button className="py-4 px-5 bg-red-500 rounded-md">
+                <Icon icon="material-symbols:delete" className="text-2xl text-white" />
+              </button>
             </a>
           ))}
         </div>
