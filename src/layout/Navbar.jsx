@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 import { useState, useContext } from 'react'
 import { Icon } from '@iconify/react'
 import { Context } from '../Context.jsx'
@@ -22,28 +22,22 @@ const Navbar = () => {
         }
       })
       if (response.status === 200) {
-        toast.success('Berhasil Logout', {
-          position: 'top-right',
-          autoClose: 3000,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light'
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil Logout',
+          showConfirmButton: false,
+          timer: 1500
         })
       }
 
       navigate('/login')
     } catch (error) {
       console.log(error)
-      toast.error('Gagal Logout', {
-        position: 'top-right',
-        autoClose: 3000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'light'
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Logout',
+        showConfirmButton: false,
+        timer: 1500
       })
     }
   }
@@ -69,8 +63,11 @@ const Navbar = () => {
           <span>{nameUser}</span>
           <Icon icon="mingcute:down-fill" />
           {dropdownOpen && (
-            <div className="bg-white px-10 py-3 absolute mt-24 border rounded-md hover:bg-gray-400">
-              <span onClick={logout}>Logout</span>
+            <div
+              className="bg-white px-10 py-3 absolute mt-24 border rounded-md hover:bg-gray-400"
+              onClick={logout}
+            >
+              <span>Logout</span>
             </div>
           )}
         </div>
