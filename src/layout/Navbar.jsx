@@ -25,7 +25,6 @@ const Navbar = () => {
         toast.success('Berhasil Logout', {
           position: 'top-right',
           autoClose: 3000,
-          hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
@@ -40,7 +39,6 @@ const Navbar = () => {
       toast.error('Gagal Logout', {
         position: 'top-right',
         autoClose: 3000,
-        hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
@@ -54,11 +52,11 @@ const Navbar = () => {
     return localStorage.getItem('name', name)
   }
 
-  const nameUser = useState(getName())
+  const nameUser = getName()
 
   return (
     <nav className="bg-white border-gray-200 ">
-      <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-4">
+      <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-5">
         <a href="https://flowbite.com/" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">
             Note App
