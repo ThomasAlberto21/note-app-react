@@ -7,6 +7,7 @@ import NotFound from './pages/404.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from './Context.jsx'
 import 'react-toastify/dist/ReactToastify.css'
+import AddNotes from './pages/addNotes/addNotes.jsx'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/success-register" element={<RegisterSuccess />} />
+          <Route path="/add-notes" element={<AddNotes />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>

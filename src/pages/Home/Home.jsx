@@ -4,6 +4,7 @@ import Navbar from '../../layout/Navbar'
 import SearchBar from '../../components/searchBar'
 import { Icon } from '@iconify/react'
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [notes, setNotes] = useState([])
@@ -67,9 +68,12 @@ const Home = () => {
         <div className="max-w-screen-lg mx-auto mt-24 p-5">
           <div className="flex justify-between items-center mb-10 gap-4">
             <SearchBar />
-            <button className="py-4 px-5 bg-gray-800 font-bold rounded-md text-white hover:bg-gray-600">
+            <Link
+              to="/add-notes"
+              className="py-4 px-5 bg-gray-800 font-bold rounded-md text-white hover:bg-gray-600"
+            >
               <Icon icon="material-symbols:add" className=" text-white" />
-            </button>
+            </Link>
           </div>
           {notes.map((note) => (
             <a
@@ -78,10 +82,10 @@ const Home = () => {
               className="flex justify-between items-center max-w p-6 border  rounded-lg shadow  bg-gray-800 border-gray-700 mb-3"
             >
               <div className="block">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-800 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
                   {note.title}
                 </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">{note.date}</p>
+                <p className="font-normal text-gray-400">{note.date}</p>
               </div>
               <button
                 className="py-4 px-5 bg-red-500 rounded-md hover:bg-red-400"
