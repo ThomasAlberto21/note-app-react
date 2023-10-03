@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Provider } from './Context.jsx'
 import 'react-toastify/dist/ReactToastify.css'
 import AddNotes from './pages/addNotes/addNotes.jsx'
+import UpdateNote from './pages/updateNotes/updateNotes.jsx'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/success-register" element={<RegisterSuccess />} />
           <Route path="/add-notes" element={<AddNotes />} />
+          <Route path="/update-note" element={<UpdateNote />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>

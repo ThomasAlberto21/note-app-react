@@ -4,9 +4,10 @@ import Navbar from '../../layout/Navbar'
 import SearchBar from '../../components/searchBar'
 import { Icon } from '@iconify/react'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   const [notes, setNotes] = useState([])
 
   useEffect(() => {
@@ -61,6 +62,22 @@ const Home = () => {
     }
   }
 
+  const updateNote = async (id_note) => {
+    try {
+      const token = localStorage.getItem('token')
+      const response = await axios.put(`http://localhost:3000/notes/${id_note}`, {
+        headers: {
+          Authorization: token
+        }
+      })
+      if (response.status === 200) {
+        navigate(`/update-note`)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="w-full">
@@ -82,17 +99,23 @@ const Home = () => {
               className="flex justify-between items-center max-w p-6 border  rounded-lg shadow  bg-gray-800 border-gray-700 mb-3"
             >
               <div className="block">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
-                  {note.title}
-                </h5>
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{note.title}</h5>
                 <p className="font-normal text-gray-400">{note.date}</p>
               </div>
-              <button
-                className="py-4 px-5 bg-red-500 rounded-md hover:bg-red-400"
-                onClick={() => deleteNote(note.id_note)}
-              >
-                <Icon icon="material-symbols:delete" className="text-2xl text-white" />
-              </button>
+              <div className="flex gap-3">
+                <button
+                  className="py-4 px-5 bg-blue-500 rounded-md hover:bg-blue-400"
+                  onClick={() => updateNote(note.id_note)}
+                >
+                  <Icon icon="material-symbols:edit" className="text-2xl text-white" />
+                </button>
+                <button
+                  className="py-4 px-5 bg-red-500 rounded-md hover:bg-red-400"
+                  onClick={() => deleteNote(note.id_note)}
+                >
+                  <Icon icon="material-symbols:delete" className="text-2xl text-white" />
+                </button>
+              </div>
             </a>
           ))}
         </div>
