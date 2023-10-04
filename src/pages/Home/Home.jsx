@@ -4,9 +4,10 @@ import Navbar from '../../layout/Navbar'
 import SearchBar from '../../components/searchBar'
 import { Icon } from '@iconify/react'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   const [notes, setNotes] = useState([])
 
   useEffect(() => {
@@ -61,6 +62,15 @@ const Home = () => {
     }
   }
 
+  const editNote = (id_note) => {
+    navigate(`/update-note/${id_note}`, {
+      state: {
+        title: notes.find((note) => note.id_note === id_note).title,
+        description: notes.find((note) => note.id_note === id_note).description
+      }
+    })
+  }
+
   return (
     <>
       <div className="w-full">
@@ -85,12 +95,12 @@ const Home = () => {
                 <p className="font-normal text-gray-400">{note.date}</p>
               </div>
               <div className="flex gap-3">
-                <Link
-                  to={`/update-note/${note.id_note}`}
+                <button
+                  onClick={() => editNote(note.id_note)}
                   className="py-4 px-5 bg-blue-500 rounded-md hover:bg-blue-400"
                 >
                   <Icon icon="material-symbols:edit" className="text-2xl text-white" />
-                </Link>
+                </button>
                 <button
                   className="py-4 px-5 bg-red-500 rounded-md hover:bg-red-400"
                   onClick={() => deleteNote(note.id_note)}

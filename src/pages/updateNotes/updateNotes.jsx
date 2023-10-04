@@ -1,36 +1,6 @@
-import axios from 'axios'
 import Navbar from '../../layout/Navbar'
-import Swal from 'sweetalert2'
-import { useState } from 'react'
 
 const UpdateNote = () => {
-  const [notes, setNotes] = useState([])
-
-  const updateNote = async (id_note, dataNote) => {
-    const token = localStorage.getItem('token')
-    try {
-      const response = await axios.put(`http://localhost:3000/notes/${id_note}`, dataNote, {
-        headers: {
-          Authorization: token
-        }
-      })
-
-      const updatedNote = response.data.data
-      setNotes((prevNotes) => {
-        return prevNotes.map((note) => {
-          if (note.id_note === updatedNote.id_note) {
-            return updatedNote
-          }
-
-          return note
-        })
-      })
-    } catch (error) {
-      console.log(error)
-      Swal.fire('Gagal!', 'Note anda gagal diupdate.', 'error')
-    }
-  }
-
   return (
     <div className="w-full">
       <Navbar />
