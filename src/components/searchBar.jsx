@@ -26,7 +26,6 @@ const SearchBar = ({ searchNotes, setTitle }) => {
           id="default-search"
           className="w-full  py-3 pl-10 text-sm text-gray-800 bg-transparent border-2 border-gray-900 rounded-lg placeholder:text-gray-800 "
           placeholder="Cari Note..."
-          required
           onChange={handleChange}
         />
       </div>
