@@ -6,9 +6,12 @@ import { useNavigate } from 'react-router-dom'
 
 const AddNotes = () => {
   const navigate = useNavigate()
-  const [notes, setNotes] = useState([])
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [notes, setNotes] = useState({
+    title: '',
+    description: ''
+  })
+
+  const { title, description } = notes
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -28,12 +31,9 @@ const AddNotes = () => {
           showConfirmButton: false,
           timer: 1500
         })
-        const updatedNotes = notes.concat({
-          title,
-          description
+        setNotes((prevNotes) => {
+          return [notes, ...prevNotes]
         })
-
-        setNotes(updatedNotes)
         navigate('/home')
       }
     } catch (error) {
@@ -53,13 +53,13 @@ const AddNotes = () => {
       <div className="max-w-screen-lg mx-auto mt-10 p-5">
         <form action="" onSubmit={handleSubmit}>
           <input
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={(e) => setNotes({ ...notes, title: e.target.value })}
             type="text"
             placeholder="Masukkan title"
             className="border-none text-6xl focus:outline-none font-semibold"
           />
           <textarea
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setNotes({ ...notes, description: e.target.value })}
             cols="30"
             rows="20"
             placeholder="Masukkan isi note"

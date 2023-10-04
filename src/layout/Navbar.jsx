@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { useState, useContext } from 'react'
 import { Icon } from '@iconify/react'
@@ -51,11 +51,11 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 ">
       <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-5">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <Link to='/home' className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">
             Note App
           </span>
-        </a>
+        </Link>
         <div
           className="flex justify-center items-center gap-3 cursor-pointer"
           onClick={handleDropdown}

@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/success-register" element={<RegisterSuccess />} />
           <Route path="/add-notes" element={<AddNotes />} />
-          <Route path="/update-note/:id_note" element={<UpdateNote />} />
+          <Route path="/edit-note/:id_note" element={<UpdateNote />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Provider>
