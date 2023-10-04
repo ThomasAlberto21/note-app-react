@@ -1,8 +1,8 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import axios from 'axios'
 import Navbar from '../../layout/Navbar'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const UpdateNote = () => {
   const navigate = useNavigate()

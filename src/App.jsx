@@ -4,11 +4,11 @@ import Welcome from './pages/Welcome.jsx'
 import Register from './pages/Register/Register.jsx'
 import RegisterSuccess from './pages/Register/RegisterSuccess.jsx'
 import NotFound from './pages/404.jsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Provider } from './Context.jsx'
-import 'react-toastify/dist/ReactToastify.css'
 import AddNotes from './pages/addNotes/addNotes.jsx'
 import UpdateNote from './pages/updateNotes/updateNotes.jsx'
+import { Provider } from './Context.jsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import 'react-toastify/dist/ReactToastify.css'
 
 const App = () => {
   return (

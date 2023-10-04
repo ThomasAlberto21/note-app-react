@@ -1,9 +1,9 @@
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { Icon } from '@iconify/react'
-import { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import { Context } from '../../Context.jsx'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useContext } from 'react'
 
 const Login = () => {
   const navigate = useNavigate()

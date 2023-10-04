@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import registerSuccess from '../../../public/images/registerSuccess.png'
+import { Link } from 'react-router-dom'
 
 const RegisterSuccess = () => {
   return (

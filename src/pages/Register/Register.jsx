@@ -10,6 +10,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
+  // Submit data to backend
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {

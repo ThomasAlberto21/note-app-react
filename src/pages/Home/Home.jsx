@@ -3,8 +3,8 @@ import axios from 'axios'
 import Navbar from '../../layout/Navbar'
 import SearchBar from '../../components/searchBar'
 import { Icon } from '@iconify/react'
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const Home = () => {
   const [title, setTitle] = useState('')

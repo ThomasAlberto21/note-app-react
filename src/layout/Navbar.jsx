@@ -1,9 +1,9 @@
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { useState, useContext } from 'react'
 import { Icon } from '@iconify/react'
 import { Context } from '../Context.jsx'
+import { useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const { name } = useContext(Context)
@@ -51,7 +51,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 ">
       <div className="max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-5">
-        <Link to='/home' className="flex items-center">
+        <Link to="/home" className="flex items-center">
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">
             Note App
           </span>

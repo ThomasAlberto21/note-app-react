@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Navbar from '../../layout/Navbar'
-import axios from 'axios'
 import Swal from 'sweetalert2'
+import axios from 'axios'
+import Navbar from '../../layout/Navbar'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const AddNotes = () => {
