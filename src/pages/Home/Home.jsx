@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
+  const [title, setTitle] = useState('')
   const [notes, setNotes] = useState([])
 
   useEffect(() => {
@@ -61,13 +62,33 @@ const Home = () => {
     }
   }
 
+  // Search Note
+  const searchNotes = async () => {
+    try {
+      const token = localStorage.getItem('token')
+      const response = await axios.get(`http://localhost:3000/notes`, {
+        headers: {
+          Authorization: token
+        },
+        params: {
+          title: title
+        }
+      })
+
+      const notes = response.data.data
+      setNotes(notes)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <>
       <div className="w-full">
         <Navbar />
         <div className="max-w-screen-lg mx-auto mt-24 p-5">
           <div className="flex justify-between items-center mb-10 gap-4">
-            <SearchBar />
+            <SearchBar searchNotes={searchNotes} setTitle={setTitle} />
             <Link
               to="/add-notes"
               className="py-4 px-5 bg-gray-800 font-bold rounded-md text-white hover:bg-gray-600"

@@ -34,6 +34,7 @@ const AddNotes = () => {
         setNotes((prevNotes) => {
           return [notes, ...prevNotes]
         })
+
         navigate('/home')
       }
     } catch (error) {
